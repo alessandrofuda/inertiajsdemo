@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="inertia-container">
     <portal-target name="dropdown" slim />
     <div class="flex flex-col">
       <div class="h-screen flex flex-col" @click="hideDropdownMenus">
@@ -37,7 +37,7 @@
           <main-menu :url="url()" class="bg-indigo-800 flex-shrink-0 w-56 p-12 hidden md:block overflow-y-auto" />
           <div class="flex-1 px-4 py-8 md:p-12 overflow-y-auto" scroll-region>
             <flash-messages />
-            <slot />
+            <slot /> <!--page-conte-yield-->
           </div>
         </div>
       </div>
