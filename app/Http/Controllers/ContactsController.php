@@ -35,14 +35,20 @@ class ContactsController extends Controller
 
     public function create()
     {
-        return Inertia::render('Contacts/Create', [
-            'organizations' => Auth::user()->account
-                ->organizations()
-                ->orderBy('name')
-                ->get()
-                ->map
-                ->only('id', 'name'),
-        ]);
+        $organizations_for_select = Auth::user()->account->organizations->sortBy('name')->map(function($organization) {
+           return ['id' => $organization->id, 'name' => $organization->name];
+        });
+
+        return Inertia::render('Contacts/Create', ['organizations' => $organizations_for_select->values()]);
+
+// ORIGINAL!  return Inertia::render('Contacts/Create', [ // switched from query builder to collections
+//            'organizations' => Auth::user()->account
+//                ->organizations()
+//                ->orderBy('name')
+//                ->get()
+//                ->map
+//                ->only('id', 'name'),
+//        ]);
     }
 
     public function store()
