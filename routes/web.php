@@ -149,3 +149,4 @@ Route::get('500', function () {
 
     echo $fail;
 });
+
