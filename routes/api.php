@@ -21,4 +21,4 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::post('inbound-email', [InboundEmailController::class, 'parseEmail'])
     ->name('inbound-email.parse')
-    ->middleware('guest');
+    ->middleware(['guest','mailgun.webhook']);
