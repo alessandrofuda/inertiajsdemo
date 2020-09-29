@@ -24,7 +24,7 @@ class InboundEmailController extends Controller
                         $response = $client->get($attachment->url, [
                             'auth' => ['api', config('services.mailgun.secret')],
                         ]);
-                        $attachment_body = $response->getBody();
+                        $attachment_body = trim($response->getBody());
                         $handle_attachment = new AddOrganizationsViaMailAttachment($attachment_body);
                         $handle_attachment->insertCsvInDb();
 
