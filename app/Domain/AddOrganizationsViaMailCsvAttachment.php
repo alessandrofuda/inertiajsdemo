@@ -44,8 +44,7 @@ class AddOrganizationsViaMailCsvAttachment // implements AddOrganizationsInterfa
         foreach ($csv_lines as $csv_line) {
             $data_array[] = str_getcsv($csv_line, ';');
         }
-        $organizations = $this->convertDataArrayToAssociativeArrays($data_array);
-        return $organizations;
+        return $this->convertDataArrayToAssociativeArrays($data_array);
     }
 
     private function convertDataArrayToAssociativeArrays($data_array) {

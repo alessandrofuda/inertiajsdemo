@@ -30,6 +30,8 @@ class InboundEmailController extends Controller
 
                     } catch (GuzzleException $e) {
                         Log::error('Exception_: '. $e->getMessage());
+                        abort(500, 'Error: '. $e->getMessage());
+                        return response()->json(['status'=>'error: '.$e->getMessage()], 500);
                     }
                 }
             }

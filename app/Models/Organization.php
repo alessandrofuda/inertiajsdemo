@@ -3,8 +3,6 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\SoftDeletes;
-use Illuminate\Support\Facades\Schema;
-
 
 class Organization extends Model
 {
@@ -27,8 +25,4 @@ class Organization extends Model
             }
         });
     }
-
-//    public static function getColsHeaders() : Array {
-//        return Schema::getColumnListing('organizations');
-//    }
 }

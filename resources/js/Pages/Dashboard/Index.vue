@@ -17,6 +17,9 @@
         <li class="mb-2">Laravel make auth API call to attachment url to get attachment content</li>
         <li class="mb-2">Laravel parse and return csv attachment content and insert this information into db</li>
       </ul>
+      <div class="csv-example">
+          <a href="csv-download">Download Here .csv example</a>
+      </div>
     </div>
   </div>
 </template>
