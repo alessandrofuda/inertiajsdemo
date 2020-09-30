@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Domain\AddOrganizationsViaMailAttachment;
+use App\Domain\AddOrganizationsViaMailCsvAttachment;
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\GuzzleException;
 use Illuminate\Http\Request;
@@ -25,7 +25,7 @@ class InboundEmailController extends Controller
                             'auth' => ['api', config('services.mailgun.secret')],
                         ]);
                         $attachment_body = trim($response->getBody());
-                        $handle_attachment = new AddOrganizationsViaMailAttachment($attachment_body);
+                        $handle_attachment = new AddOrganizationsViaMailCsvAttachment($attachment_body);
                         $handle_attachment->insertCsvInDb();
 
                     } catch (GuzzleException $e) {
